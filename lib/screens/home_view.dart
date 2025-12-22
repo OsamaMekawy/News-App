@@ -1,4 +1,5 @@
-import 'package:coody/componuntes/category_card.dart';
+import 'package:coody/componuntes/categories_list_view.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,7 +12,7 @@ class HomeView extends StatelessWidget {
         elevation: 0,
         title: Center(
           child: Row(
-           mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 "News",
@@ -22,26 +23,24 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               Text(
-              " Cloud",
-              style: TextStyle(
-                color: Colors.orange,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+                " Cloud",
+                style: TextStyle(
+                  color: Colors.orange,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-                          )
             ],
           ),
         ),
       ),
       body: Column(
         children: [
-          Row(
-            children: [
-              CategoryCard()
-            ],
-          )
+          CategoriesListView()
         ],
       ),
     );
   }
 }
+
+

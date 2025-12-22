@@ -1,5 +1,6 @@
-import 'package:coody/componuntes/categories_list_view.dart';
 
+import 'package:coody/componuntes/categories_list_view.dart';
+import 'package:coody/componuntes/news_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -34,13 +35,20 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          CategoriesListView()
-        ],
-      ),
+      body:Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          children: [
+            CategoriesListView(),
+            SizedBox(height: 32,),
+            Expanded(child: NewsListView())
+          ],
+        ),
+      )
     );
   }
 }
+
+
 
 

@@ -1,23 +1,32 @@
 import 'package:coody/componuntes/news_tile.dart';
+import 'package:coody/models/articals_model.dart';
+import 'package:coody/servies/news_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-class NewsListView extends StatelessWidget {
-  const NewsListView({
-    super.key,
-  });
+class NewsListView extends StatefulWidget {
+  const NewsListView({super.key});
+
+  @override
+  State<NewsListView> createState() => _NewsListViewState();
+}
+
+class _NewsListViewState extends State<NewsListView> {
+  @override
+  List<ArticleModel> articals = [];
+  void initState() async {
+    super.initState();
+    articals = await NewsService(Dio()).getNews();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: BouncingScrollPhysics(),
-      scrollDirection: Axis.vertical,
-     itemCount: 10,
-     itemBuilder: (context,index){
-       return Padding(
-         padding: const EdgeInsets.only(bottom: 20.0),
-         child: NewsTile(),
-       );
-     }
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        childCount: articals.length,
+        (context, index) {
+        return NewsTile(articleModel: articals[index],);
+      }),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:coody/models/articals_model.dart';
-import 'package:coody/servies/news_service.dart';
-import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
 
 // cached network image

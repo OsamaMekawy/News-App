@@ -1,9 +1,8 @@
 import 'package:coody/componuntes/categories_list_view.dart';
-import 'package:coody/componuntes/news_list_view.dart';
+
 import 'package:coody/componuntes/news_list_view_builder.dart';
-import 'package:coody/models/articals_model.dart';
-import 'package:coody/servies/news_service.dart';
-import 'package:dio/dio.dart';
+
+
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

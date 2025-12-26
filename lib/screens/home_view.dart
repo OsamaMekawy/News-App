@@ -1,6 +1,9 @@
-
 import 'package:coody/componuntes/categories_list_view.dart';
 import 'package:coody/componuntes/news_list_view.dart';
+import 'package:coody/componuntes/news_list_view_builder.dart';
+import 'package:coody/models/articals_model.dart';
+import 'package:coody/servies/news_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -35,24 +38,18 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-      body:Padding(
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: CategoriesListView() ,
-            ),
-             SliverToBoxAdapter(
-              child: SizedBox(height: 32,) ,
-            ),
-             NewsListView(),
+            SliverToBoxAdapter(child: CategoriesListView()),
+            SliverToBoxAdapter(child: SizedBox(height: 32)),
+            NewsListViewBuilder(category: 'general',),
           ],
         ),
-      )
+      ),
     );
   }
 }
-
-
 
 
